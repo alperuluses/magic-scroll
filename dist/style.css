@@ -36,6 +36,22 @@ a:active {
   text-decoration: none;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+}
+.grid__main, .grid__aside {
+  padding: 10px;
+}
+.grid__main {
+  background-color: chocolate;
+}
+.grid__aside {
+  background-color: salmon;
+}
+
 .container .save-btn {
   background-color: black;
   color: white;
