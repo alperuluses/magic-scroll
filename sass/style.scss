@@ -1,0 +1,16 @@
+@forward "globals";
+$btn-size: 15px;
+$btn-save-color: white;
+$btn-bg: black;
+
+%common-btn {
+  background-color: $btn-bg;
+  color: $btn-save-color;
+  font-size: $btn-size;
+}
+
+.container {
+  .save-btn {
+    @extend %common-btn;
+  }
+}
