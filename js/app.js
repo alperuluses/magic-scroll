@@ -1,7 +1,7 @@
 const steps = document.querySelectorAll(".step");
 const options = {
   rootMargin: "0px",
-  threshold: 0.01,
+  threshold: 0.1,
 };
 
 let callback = (e) => {
