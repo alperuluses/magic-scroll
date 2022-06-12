@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
-  gap: 40px;
+
   &__main,&__aside{
     padding: 10px;
+    height: 100vh;
   }
   &__main {
     background-color: chocolate;
