@@ -16,7 +16,7 @@ body {
   background-color: hsl(0deg, 0%, 11%);
   color: hsl(0deg, 0%, 100%);
   height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 h1,
@@ -37,22 +37,57 @@ a:active {
   text-decoration: none;
 }
 
+.grid__main h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto;
 }
+.grid__main:nth-child(1) {
+  background-color: rgb(230, 186, 149);
+}
+.grid__main:nth-child(2) {
+  background-color: rgb(227, 202, 165);
+}
+.grid__main:nth-child(3) {
+  background-color: rgb(228, 233, 190);
+}
+.grid__main:nth-child(4) {
+  background-color: rgb(162, 179, 139);
+  -webkit-animation: hueEffect 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+          animation: hueEffect 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
 .grid__main, .grid__aside {
   padding: 10px;
   height: 100vh;
 }
-.grid__main {
-  background-color: chocolate;
-}
-.grid__aside {
-  background-color: salmon;
+.grid__main h1 {
+  height: 100%;
+  font-size: 50px;
 }
 
+@-webkit-keyframes hueEffect {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360);
+  }
+}
+
+@keyframes hueEffect {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360);
+  }
+}
 .container .save-btn {
   background-color: black;
   color: white;
