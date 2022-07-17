@@ -1,14 +1,17 @@
 const steps = document.querySelectorAll(".step");
 const options = {
   rootMargin: "0px",
-  threshold:  0.1,
+  threshold: 0.1,
 };
 
 let callback = (e) => {
   for (const entry of e) {
     console.log(entry);
     entry.target.classList.toggle("active-step", entry.isIntersecting);
-    entry.target.children[0].classList.toggle("animate__backInRight", entry.isIntersecting);
+    entry.target.children[0].classList.toggle(
+      "animate__backInRight",
+      entry.isIntersecting
+    );
   }
 };
 
@@ -27,18 +30,38 @@ function nextStep(direction) {
   );
   if (nextElement) {
     nextElement.scrollIntoView({
-      behavior: "smooth"
+      behavior: "smooth",
     });
   }
 }
+
+let shouldWait = false;
 window.onwheel = (e) => {
   if (e.deltaY >= 0) {
-    // Scrolling Down with mouse
+    // Scrolling Down 
     console.log("Scroll Down");
-    nextStep("down");
+
+    if (shouldWait) {
+      console.log("waiting....");
+    } else {
+      shouldWait = true;
+      nextStep("down");
+      setTimeout(() => {
+        shouldWait = false;
+      }, 1000);
+    }
   } else {
-    // Scrolling Up with mouse
+    // Scrolling Up 
     console.log("Scroll Up");
-    nextStep("up");
+    if (shouldWait) {
+      console.log("waiting2....");
+    } else {
+      shouldWait = true;
+      nextStep("up");
+      setTimeout(() => {
+        shouldWait = false;
+      }, 1000);
+    }
+
   }
 };
